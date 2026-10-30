@@ -1,0 +1,191 @@
+<!-- ==================== 404.html ==================== -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Страница не найдена — КОЛЕСО 21</title>
+  <meta name="description" content="Ошибка 404. Страница не найдена.">
+  <meta name="theme-color" content="#1F2226">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Страница не найдена — КОЛЕСО 21">
+  <meta property="og:description" content="Ошибка 404. Запрашиваемая страница не найдена.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicon.svg">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Google Analytics 4 -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&subset=cyrillic">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <style>
+    .error-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; padding: 64px 20px; }
+    .error-code { font-family: var(--f-head); font-size: clamp(100px, 20vw, 180px); font-weight: 700; line-height: 1; color: var(--c-graphite); display: flex; align-items: center; justify-content: center; gap: 20px; position: relative; }
+    .error-code__svg { display: flex; align-items: center; justify-content: center; animation: spin 10s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .error-title { font-size: clamp(24px, 5vw, 36px); font-weight: 700; text-transform: uppercase; margin: 24px 0 16px; color: var(--c-graphite); }
+    .error-text { font-size: 18px; color: var(--c-muted); max-width: 50ch; margin-bottom: 32px; }
+    .error-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    
+    .popular-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--c-gray); width: 100%; max-width: 600px; }
+    .popular-links h2 { font-family: var(--f-head); font-size: 20px; text-transform: uppercase; margin-bottom: 16px; }
+    .popular-links ul { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; list-style: none; padding: 0; }
+    .popular-links a { display: inline-block; padding: 8px 16px; background: var(--c-gray); border-radius: var(--radius); text-decoration: none; color: var(--c-graphite); font-weight: 500; font-size: 15px; transition: background-color .2s; }
+    .popular-links a:hover { background: var(--c-yellow); color: var(--c-graphite); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="404.html#main">Перейти к содержимому</a>
+
+  <!-- ===== Шапка и меню ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+        <svg class="logo__icon" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <circle cx="20" cy="20" r="6" fill="#C8361D"></circle>
+          <path d="M20 2v10M20 28v10M2 20h10M28 20h10" stroke="currentColor" stroke-width="3"></path>
+        </svg>
+        <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+      </a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tires.html">Шиномонтаж</a></li>
+          <li><a class="nav__link" href="storage.html">Хранение</a></li>
+          <li><a class="nav__link" href="services.html">Автосервис</a></li>
+          <li><a class="nav__link" href="winter-tips.html">Когда переобуваться</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="contact_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="error-page">
+        
+        <div class="error-code">
+          <span>4</span>
+          <div class="error-code__svg">
+            <svg viewBox="0 0 100 100" width="100" height="100" aria-hidden="true">
+              <!-- Шина -->
+              <circle cx="50" cy="50" r="40" fill="none" stroke="var(--c-graphite)" stroke-width="16"></circle>
+              <circle cx="50" cy="50" r="20" fill="none" stroke="var(--c-gray)" stroke-width="4"></circle>
+              <!-- Диск -->
+              <circle cx="50" cy="50" r="12" fill="var(--c-graphite)"></circle>
+              <circle cx="50" cy="50" r="4" fill="var(--c-white)"></circle>
+              <!-- Гвоздь/прокол -->
+              <path d="M 15 15 L 35 35" stroke="var(--c-red)" stroke-width="6" stroke-linecap="round"></path>
+              <path d="M 15 20 L 20 15" stroke="var(--c-red)" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <span>4</span>
+        </div>
+
+        <h1 class="error-title">Страница не найдена</h1>
+        <p class="error-text">Похоже, мы прокололи эту ссылку. Возможно, страница была удалена или вы ошиблись в адресе.</p>
+
+        <div class="error-actions">
+          <a class="btn btn--primary btn--lg" href="index.html">На главную</a>
+          <a class="btn btn--secondary btn--lg" href="contacts.html#booking">Записаться</a>
+        </div>
+
+        <div class="popular-links">
+          <h2>Популярные разделы</h2>
+          <ul>
+            <li><a href="tires.html">Шиномонтаж</a></li>
+            <li><a href="storage.html">Хранение шин</a></li>
+            <li><a href="services.html">Автосервис</a></li>
+            <li><a href="winter-tips.html">Когда переобуваться</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Подвал ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <a class="logo logo--light" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+          <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+        </a>
+        <p class="footer__about">Шиномонтаж, хранение шин и автосервис в Новоозёрске.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Навигация в подвале">
+        <h2 class="footer__title">Разделы</h2>
+        <ul class="footer__list">
+          <li><a href="tires.html">Шиномонтаж</a></li>
+          <li><a href="storage.html">Хранение</a></li>
+          <li><a href="services.html">Автосервис</a></li>
+          <li><a href="winter-tips.html">Когда переобуваться</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer__col">
+        <h2 class="footer__title">Контакты</h2>
+        <ul class="footer__list">
+          <li>г. Новоозёрск, Объездное шоссе, д. 21</li>
+          <li><a href="tel:+79000002121" data-event="contact_click" data-button-name="footer_phone" data-page-section="footer">+7 (900) 000-21-21</a></li>
+          <li><a href="mailto:info@koleso21.ru">info@koleso21.ru</a></li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </address>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Мы в соцсетях</h2>
+        <ul class="socials">
+          <li>
+            <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="instagram" data-page-section="footer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://vk.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="vk" data-page-section="footer" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h3c.4 3.5 2 5.5 3.5 6V7h3v3.5c1.5-.2 3-2 3.5-3.5h3c-.5 2.2-2.2 4-3.4 4.8 1.2.6 3.1 2.2 3.9 5.2h-3.3c-.7-2-2.2-3.5-3.7-3.7V17H12c-5 0-8.6-3.5-9-10z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="telegram" data-page-section="footer" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 4 2.8 11.1c-1 .4-1 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.9.8 1.4.4l2.6-2.1 4.8 3.5c.6.4 1.4.1 1.5-.6L22 5.2c.2-.9-.4-1.5-1-1.2zM9.5 14.2l8-6.2-6.5 7.2-.3 2.8-1.2-3.8z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 КОЛЕСО 21. Все права защищены.</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+</body>
+</html>
