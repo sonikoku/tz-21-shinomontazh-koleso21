@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Когда менять шины на зимние: правило +7 °C — КОЛЕСО 21</title>
+  <meta name="description" content="Узнайте, когда переобуваться на зимние шины. Правило +7 °C, проверка глубины протектора и промокод WINTER10 на шиномонтаж в Новоозёрске.">
+  <meta name="theme-color" content="#1F2226">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Когда переобуваться — КОЛЕСО 21">
+  <meta property="og:description" content="Правило +7 °C, проверка протектора и промокод на шиномонтаж.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="img/og.jpg">
+
+  <!-- Google Analytics 4: замените G-XXXXXXXXXX на реальный идентификатор -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Шрифты Oswald и Inter с кириллицей -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&subset=cyrillic">
+
+  <!-- Твои локальные стили и скрипты -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Стили, специфичные для страницы «Когда переобуваться» -->
+  <style>
+    .page-head { background: var(--c-graphite); color: var(--c-white); }
+    .page-head__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 48px; padding-bottom: 56px; }
+    .breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: rgba(255,255,255,.7); }
+    .breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; }
+    .breadcrumbs li { display: flex; align-items: center; }
+    .page-head__title { font-size: clamp(36px, 8vw, 64px); font-weight: 700; text-transform: uppercase; }
+    .page-head__lead { font-size: 18px; max-width: 60ch; color: rgba(255,255,255,.85); text-wrap: pretty; }
+    .page-head__list { display: flex; flex-wrap: wrap; gap: 8px 24px; color: rgba(255,255,255,.75); font-size: 15px; }
+    .page-head__list li { display: flex; align-items: center; gap: 8px; }
+    .page-head__list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c-red); }
+
+    .tread-check { display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
+    .tread-check__row { display: flex; flex-direction: column; gap: 12px; }
+    @media (min-width: 480px) { .tread-check__row { flex-direction: row; align-items: flex-end; } }
+    .tread-check .field { flex: 1; }
+    .tread-check__result { font-weight: 600; font-size: 18px; min-height: 28px; }
+    .tread-check__result--replace { color: var(--c-red); }
+    .tread-check__result--ok { color: #1a7f37; }
+    .tread-check__hint { font-size: 14px; color: var(--c-muted); }
+
+    .promo { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; max-width: 560px; }
+    .promo__code { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px 24px; border-radius: var(--radius); background: var(--c-yellow); color: var(--c-graphite); font-family: var(--f-head); font-weight: 700; font-size: 28px; letter-spacing: .04em; }
+    .promo__copy { font-family: var(--f-body); font-weight: 600; font-size: 14px; padding: 8px 16px; border: 2px solid var(--c-graphite); border-radius: var(--radius); background: transparent; color: var(--c-graphite); cursor: pointer; min-height: 44px; }
+    .promo__copy:hover { background: var(--c-graphite); color: var(--c-white); }
+    .promo__feedback { font-size: 15px; color: #1a7f37; font-weight: 500; min-height: 24px; }
+
+    .booking { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .booking__text { max-width: 56ch; color: rgba(255,255,255,.8); }
+    @media (min-width: 768px) { .booking { flex-direction: row; align-items: center; justify-content: space-between; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="winter-tips.html#main">Перейти к содержимому</a>
+
+  <!-- ===== Шапка и меню ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+        <svg class="logo__icon" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <circle cx="20" cy="20" r="6" fill="#C8361D"></circle>
+          <path d="M20 2v10M20 28v10M2 20h10M28 20h10" stroke="currentColor" stroke-width="3"></path>
+        </svg>
+        <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+      </a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tires.html">Шиномонтаж</a></li>
+          <li><a class="nav__link" href="storage.html">Хранение</a></li>
+          <li><a class="nav__link" href="services.html">Автосервис</a></li>
+          <li><a class="nav__link is-active" href="winter-tips.html" aria-current="page">Когда переобуваться</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="contact_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Заголовок страницы ===== -->
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container page-head__inner">
+        <nav aria-label="Хлебные крошки">
+          <ol class="breadcrumbs">
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Когда переобуваться</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-head__title" id="page-title">Когда переобуваться</h1>
+        <p class="page-head__lead">Правило +7 °C и проверка глубины протектора: узнайте, когда менять летние шины на зимние и как подготовить автомобиль к сезону.</p>
+        <ul class="page-head__list">
+          <li>Сезон 2026</li>
+          <li>Советы мастера</li>
+          <li>Промокод на скидку</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Правило +7 °C и проверка протектора ===== -->
+    <section class="section section--gray" aria-labelledby="rule-title">
+      <div class="container">
+        <h2 class="section__title" id="rule-title">Правило +7 °С</h2>
+        <p class="section__lead">Менять летние шины на зимние рекомендуется, когда среднесуточная температура опускается до +7 °C. Летняя резина при низких температурах дубеет, сцепление ухудшается, а тормозной путь увеличивается.</p>
+
+        <div class="card tread-check">
+          <h3 class="section__title" style="font-size: 24px;">Проверка глубины протектора</h3>
+          <p>Введите остаточную глубину протектора в миллиметрах. Для зимних шин минимально допустимая глубина — 4 мм.</p>
+          <div class="tread-check__row">
+            <div class="field">
+              <label class="field__label" for="tread-depth">Глубина протектора, мм</label>
+              <input class="field__control" type="number" id="tread-depth" step="0.1" min="0" max="20" placeholder="Например, 3.5" style="padding-right: 14px;">
+            </div>
+            <button class="btn btn--primary" type="button" id="check-tread">Проверить</button>
+          </div>
+          <p class="tread-check__result" id="tread-result" aria-live="polite"></p>
+          <p class="tread-check__hint">* Если глубина меньше 4 мм, шины считаются изношенными и подлежат замене.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Промокод ===== -->
+    <section class="section" aria-labelledby="promo-title">
+      <div class="container">
+        <h2 class="section__title" id="promo-title">Промокод на переобувку</h2>
+        <p class="section__lead">Скидка 10% на комплексный шиномонтаж при записи через сайт. Назовите промокод администратору при визите.</p>
+
+        <div class="card promo">
+          <div class="promo__code">
+            <span>WINTER10</span>
+            <button class="promo__copy" type="button" id="copy-promo">Скопировать</button>
+          </div>
+          <p class="promo__feedback" id="promo-feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Запись ===== -->
+    <section class="section section--dark" id="booking" aria-labelledby="booking-title">
+      <div class="container booking">
+        <div>
+          <h2 class="section__title" id="booking-title">Пора переобуваться?</h2>
+          <p class="booking__text">Запишитесь на шиномонтаж — подберём удобное время и перезвоним в течение 15 минут.</p>
+        </div>
+        <a class="btn btn--primary btn--lg" href="contacts.html#booking" data-event="cta_click" data-button-name="winter_booking" data-page-section="booking">Записаться</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Подвал ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <a class="logo logo--light" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+          <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+        </a>
+        <p class="footer__about">Шиномонтаж, хранение шин и автосервис в Новоозёрске.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Навигация в подвале">
+        <h2 class="footer__title">Разделы</h2>
+        <ul class="footer__list">
+          <li><a href="tires.html">Шиномонтаж</a></li>
+          <li><a href="storage.html">Хранение</a></li>
+          <li><a href="services.html">Автосервис</a></li>
+          <li><a href="winter-tips.html" aria-current="page">Когда переобуваться</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer__col">
+        <h2 class="footer__title">Контакты</h2>
+        <ul class="footer__list">
+          <li>г. Новоозёрск, Объездное шоссе, д. 21</li>
+          <li><a href="tel:+79000002121" data-event="contact_click" data-button-name="footer_phone" data-page-section="footer">+7 (900) 000-21-21</a></li>
+          <li><a href="mailto:info@koleso21.ru">info@koleso21.ru</a></li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </address>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Мы в соцсетях</h2>
+        <ul class="socials">
+          <li>
+            <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="instagram" data-page-section="footer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://vk.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="vk" data-page-section="footer" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h3c.4 3.5 2 5.5 3.5 6V7h3v3.5c1.5-.2 3-2 3.5-3.5h3c-.5 2.2-2.2 4-3.4 4.8 1.2.6 3.1 2.2 3.9 5.2h-3.3c-.7-2-2.2-3.5-3.7-3.7V17H12c-5 0-8.6-3.5-9-10z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="telegram" data-page-section="footer" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 4 2.8 11.1c-1 .4-1 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.9.8 1.4.4l2.6-2.1 4.8 3.5c.6.4 1.4.1 1.5-.6L22 5.2c.2-.9-.4-1.5-1-1.2zM9.5 14.2l8-6.2-6.5 7.2-.3 2.8-1.2-3.8z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 КОЛЕСО 21. Все права защищены.</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <!-- Скрипт для страницы: проверка протектора и копирование промокода -->
+  <script>
+    (function () {
+        'use strict';
+
+        // Проверка глубины протектора
+        var checkBtn = document.getElementById('check-tread');
+        var treadInput = document.getElementById('tread-depth');
+        var resultEl = document.getElementById('tread-result');
+
+        if (checkBtn && treadInput && resultEl) {
+            checkBtn.addEventListener('click', function () {
+            var raw = treadInput.value.trim().replace(',', '.');
+            var value = parseFloat(raw);
+
+            if (isNaN(value) || value < 0 || value > 20) {
+                resultEl.textContent = 'Введите корректное значение глубины (от 0 до 20 мм).';
+                resultEl.className = 'tread-check__result tread-check__result--replace';
+                return;
+            }
+
+            var isReplace = value < 4;
+            var resultText = isReplace ? 'Шины пора менять' : 'Глубина протектора достаточная';
+            var resultClass = isReplace ? 'tread-check__result--replace' : 'tread-check__result--ok';
+
+            resultEl.textContent = resultText;
+            resultEl.className = 'tread-check__result ' + resultClass;
+
+            if (window.trackCustomEvent) {
+                window.trackCustomEvent('tread_check', {
+                tread_mm: value,
+                tread_result: isReplace ? 'replace' : 'ok'
+                });
+            }
+            });
+        }
+
+        // Копирование промокода
+        var copyBtn = document.getElementById('copy-promo');
+        var feedbackEl = document.getElementById('promo-feedback');
+
+        if (copyBtn && feedbackEl) {
+            copyBtn.addEventListener('click', function () {
+            var promo = 'WINTER10';
+
+            function showFeedback(msg) {
+                feedbackEl.textContent = msg;
+                setTimeout(function () { feedbackEl.textContent = ''; }, 2500);
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(promo).then(function () {
+                showFeedback('Промокод скопирован: ' + promo);
+                }).catch(function () {
+                showFeedback('Не удалось скопировать. Промокод: ' + promo);
+                });
+            } else {
+                var textarea = document.createElement('textarea');
+                textarea.value = promo;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try { document.execCommand('copy'); showFeedback('Промокод скопирован: ' + promo); } 
+                catch (e) { showFeedback('Не удалось скопировать. Промокод: ' + promo); }
+                document.body.removeChild(textarea);
+            }
+
+            if (window.trackCustomEvent) {
+                window.trackCustomEvent('promo_copy', { promo_code: promo });
+            }
+            });
+        }
+        })();
+  </script>
+
+</body>
+</html>
