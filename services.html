@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Автосервис в Новоозёрске: ТО, ремонт, диагностика — КОЛЕСО 21</title>
+  <meta name="description" content="Автосервис в Новоозёрске: замена масла от 900 ₽, диагностика подвески 1200 ₽, развал-схождение 2500 ₽. Проверка аккумулятора бесплатно при шиномонтаже. Запись онлайн.">
+  <meta name="theme-color" content="#1F2226">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Автосервис — КОЛЕСО 21">
+  <meta property="og:description" content="Замена масла, диагностика подвески, развал-схождение и проверка аккумулятора.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="img/og.jpg">
+
+  <!-- Google Analytics 4: замените G-XXXXXXXXXX на реальный идентификатор -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Шрифты Oswald и Inter с кириллицей -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&subset=cyrillic">
+
+  <!-- Твои локальные стили и скрипты -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Стили, специфичные для страницы «Автосервис» (общий style.css не изменяется) -->
+  <style>
+    .page-head { background: var(--c-graphite); color: var(--c-white); }
+    .page-head__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 48px; padding-bottom: 56px; }
+    .breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: rgba(255,255,255,.7); }
+    .breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; }
+    .breadcrumbs li { display: flex; align-items: center; }
+    .page-head__title { font-size: clamp(36px, 8vw, 64px); font-weight: 700; text-transform: uppercase; }
+    .page-head__lead { font-size: 18px; max-width: 60ch; color: rgba(255,255,255,.85); text-wrap: pretty; }
+    .page-head__list { display: flex; flex-wrap: wrap; gap: 8px 24px; color: rgba(255,255,255,.75); font-size: 15px; }
+    .page-head__list li { display: flex; align-items: center; gap: 8px; }
+    .page-head__list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c-red); }
+
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1280px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .booking { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .booking__text { max-width: 56ch; color: rgba(255,255,255,.8); }
+    @media (min-width: 768px) { .booking { flex-direction: row; align-items: center; justify-content: space-between; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="services.html#main">Перейти к содержимому</a>
+
+  <!-- ===== Шапка и меню ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+        <svg class="logo__icon" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <circle cx="20" cy="20" r="6" fill="#C8361D"></circle>
+          <path d="M20 2v10M20 28v10M2 20h10M28 20h10" stroke="currentColor" stroke-width="3"></path>
+        </svg>
+        <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+      </a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tires.html">Шиномонтаж</a></li>
+          <li><a class="nav__link" href="storage.html">Хранение</a></li>
+          <li><a class="nav__link is-active" href="services.html" aria-current="page">Автосервис</a></li>
+          <li><a class="nav__link" href="winter-tips.html">Когда переобуваться</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="contact_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Заголовок страницы ===== -->
+    <section class="page-head" aria-labelledby="page-title" style="background: 
+          url('img/wheel.webp') right -10% center / auto 140% no-repeat, 
+          linear-gradient(100deg, rgba(31,34,38,.96) 0%, rgba(31,34,38,.85) 55%, rgba(200,54,29,.75) 100%), 
+          repeating-linear-gradient(135deg, rgba(42,46,51,.6) 0 14px, rgba(31,34,38,.6) 14px 28px);">
+      <div class="container page-head__inner">
+        <nav aria-label="Хлебные крошки">
+          <ol class="breadcrumbs">
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Автосервис</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-head__title" id="page-title">Автосервис</h1>
+        <p class="page-head__lead">Ремонт и обслуживание автомобилей в Новоозёрске. Работаем с легковыми авто, кроссоверами и внедорожниками. Честные цены и гарантия на работы.</p>
+        <ul class="page-head__list">
+          <li>Опытные мастера</li>
+          <li>Свои запчасти или наши</li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Услуги ===== -->
+    <section class="section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 class="section__title" id="services-title">Услуги автосервиса</h2>
+        <p class="section__lead">Всё для здоровья вашего автомобиля — от планового ТО до сложной диагностики.</p>
+
+        <div class="services-grid">
+          <!-- Карточка 1: Замена масла -->
+          <article class="service-card card">
+            <svg class="service-card__icon" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+              <path d="M12 20h24v18a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V20z" fill="none" stroke="currentColor" stroke-width="4"></path>
+              <path d="M18 20V12a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v8" fill="none" stroke="currentColor" stroke-width="4"></path>
+              <circle cx="24" cy="30" r="4" fill="currentColor"></circle>
+            </svg>
+            <h3 class="service-card__title">Замена масла</h3>
+            <p class="service-card__text">Замена моторного масла и масляного фильтра. Работа без учёта стоимости масла и фильтра.</p>
+            <p class="service-card__price">от 900 ₽</p>
+            <a class="btn btn--secondary" href="contacts.html#booking" data-event="service_view" data-service-name="Замена масла" data-page-section="services">Записаться</a>
+          </article>
+
+          <!-- Карточка 2: Диагностика подвески -->
+          <article class="service-card card">
+            <svg class="service-card__icon" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+              <path d="M24 6v8M24 34v8M14 18h20M14 30h20" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+              <path d="M18 18v12M30 18v12" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+            <h3 class="service-card__title">Диагностика подвески</h3>
+            <p class="service-card__text">Проверка амортизаторов, пружин, сайлентблоков и рычагов на подъёмнике.</p>
+            <p class="service-card__price">1 200 ₽</p>
+            <a class="btn btn--secondary" href="contacts.html#booking" data-event="service_view" data-service-name="Диагностика подвески" data-page-section="services">Записаться</a>
+          </article>
+
+          <!-- Карточка 3: Развал-схождение -->
+          <article class="service-card card">
+            <svg class="service-card__icon" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+              <circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="4"></circle>
+              <circle cx="24" cy="24" r="4" fill="currentColor"></circle>
+              <path d="M24 8v6M24 34v6M8 24h6M34 24h6" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+            <h3 class="service-card__title">Развал-схождение</h3>
+            <p class="service-card__text">Регулировка углов установки колёс на 3D-стенде. Для легковых и кроссоверов.</p>
+            <p class="service-card__price">2 500 ₽</p>
+            <a class="btn btn--secondary" href="contacts.html#booking" data-event="service_view" data-service-name="Развал-схождение" data-page-section="services">Записаться</a>
+          </article>
+
+          <!-- Карточка 4: Проверка аккумулятора -->
+          <article class="service-card card">
+            <svg class="service-card__icon" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+              <rect x="8" y="14" width="32" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="4"></rect>
+              <path d="M16 14V10h6v4M26 14V10h6v4" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+              <path d="M20 26h8M24 22v8" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+            <h3 class="service-card__title">Проверка аккумулятора</h3>
+            <p class="service-card__text">Тест нагрузки и плотности электролита. Бесплатно при любом шиномонтаже.</p>
+            <p class="service-card__price">Бесплатно*</p>
+            <a class="btn btn--secondary" href="contacts.html#booking" data-event="service_view" data-service-name="Проверка аккумулятора" data-page-section="services">Записаться</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Запись ===== -->
+    <section class="section section--dark" id="booking" aria-labelledby="booking-title">
+      <div class="container booking">
+        <div>
+          <h2 class="section__title" id="booking-title">Запишитесь на обслуживание</h2>
+          <p class="booking__text">Оставьте заявку — подберём удобное время и перезвоним в течение 15 минут.</p>
+        </div>
+        <a class="btn btn--primary btn--lg" href="contacts.html#booking" data-event="cta_click" data-button-name="services_booking" data-page-section="booking">Записаться</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Подвал ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <a class="logo logo--light" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+          <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+        </a>
+        <p class="footer__about">Шиномонтаж, хранение шин и автосервис в Новоозёрске.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Навигация в подвале">
+        <h2 class="footer__title">Разделы</h2>
+        <ul class="footer__list">
+          <li><a href="tires.html">Шиномонтаж</a></li>
+          <li><a href="storage.html">Хранение</a></li>
+          <li><a href="services.html" aria-current="page">Автосервис</a></li>
+          <li><a href="winter-tips.html">Когда переобуваться</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer__col">
+        <h2 class="footer__title">Контакты</h2>
+        <ul class="footer__list">
+          <li>г. Новоозёрск, Объездное шоссе, д. 21</li>
+          <li><a href="tel:+79000002121" data-event="contact_click" data-button-name="footer_phone" data-page-section="footer">+7 (900) 000-21-21</a></li>
+          <li><a href="mailto:info@koleso21.ru">info@koleso21.ru</a></li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </address>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Мы в соцсетях</h2>
+        <ul class="socials">
+          <li>
+            <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="instagram" data-page-section="footer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://vk.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="vk" data-page-section="footer" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h3c.4 3.5 2 5.5 3.5 6V7h3v3.5c1.5-.2 3-2 3.5-3.5h3c-.5 2.2-2.2 4-3.4 4.8 1.2.6 3.1 2.2 3.9 5.2h-3.3c-.7-2-2.2-3.5-3.7-3.7V17H12c-5 0-8.6-3.5-9-10z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="telegram" data-page-section="footer" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 4 2.8 11.1c-1 .4-1 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.9.8 1.4.4l2.6-2.1 4.8 3.5c.6.4 1.4.1 1.5-.6L22 5.2c.2-.9-.4-1.5-1-1.2zM9.5 14.2l8-6.2-6.5 7.2-.3 2.8-1.2-3.8z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 КОЛЕСО 21. Все права защищены.</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+</body>
+</html>
