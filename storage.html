@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://website-project-plan-21.v0.build/storage.html -->
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сезонное хранение шин в Новоозёрске — от 3 000 ₽ | КОЛЕСО 21</title>
+  <meta name="description" content="Сезонное хранение шин на дисках и без дисков в Новоозёрске. Мойка и фирменные пакеты включены. R13–R17 — 3 000 ₽, R18 и больше — 3 800 ₽ за сезон.">
+  <meta name="theme-color" content="#1F2226">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Хранение шин — КОЛЕСО 21">
+  <meta property="og:description" content="Сезонное хранение шин с мойкой и пакетами. Цены и договор хранения.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="img/og.jpg">
+
+  <!-- Google Analytics 4: замените G-XXXXXXXXXX на реальный идентификатор -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Шрифты Oswald и Inter с кириллицей -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&subset=cyrillic">
+
+  <!-- Твои локальные стили и скрипты -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Стили, специфичные для страницы «Хранение шин» (общий style.css не изменяется) -->
+  <style>
+    .page-head { background: var(--c-graphite); color: var(--c-white); }
+    .page-head__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 48px; padding-bottom: 56px; }
+    .breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: rgba(255,255,255,.7); }
+    .breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; }
+    .breadcrumbs li { display: flex; align-items: center; }
+    .page-head__title { font-size: clamp(36px, 8vw, 64px); font-weight: 700; text-transform: uppercase; }
+    .page-head__lead { font-size: 18px; max-width: 60ch; color: rgba(255,255,255,.85); text-wrap: pretty; }
+    .page-head__list { display: flex; flex-wrap: wrap; gap: 8px 24px; color: rgba(255,255,255,.75); font-size: 15px; }
+    .page-head__list li { display: flex; align-items: center; gap: 8px; }
+    .page-head__list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c-red); }
+
+    .included { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .included__item { display: flex; gap: 16px; align-items: flex-start; }
+    .included__num { flex: none; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--c-yellow); color: var(--c-graphite); font-family: var(--f-head); font-weight: 700; font-size: 18px; }
+    .included__title { font-family: var(--f-head); font-weight: 600; font-size: 18px; text-transform: uppercase; }
+    .included__text { color: var(--c-muted); font-size: 15px; }
+
+    .options { display: flex; flex-direction: column; gap: 32px; }
+    .options__group { display: flex; flex-direction: column; gap: 16px; }
+    .options__group-title { font-size: 22px; font-weight: 600; text-transform: uppercase; }
+    .options__grid { display: flex; flex-direction: column; gap: 16px; }
+    .option { display: flex; flex-direction: column; gap: 12px; }
+    .option > * { margin: 0; }
+    .option__rim { font-family: var(--f-head); font-weight: 600; font-size: 24px; }
+    .option__desc { color: var(--c-muted); font-size: 15px; }
+    .option__price { font-family: var(--f-head); font-weight: 700; font-size: 32px; color: var(--c-red); }
+    .option__price small { font-family: var(--f-body); font-weight: 500; font-size: 14px; color: var(--c-muted); }
+    .option .btn { margin-top: auto; }
+
+    .doc { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .doc__icon { flex: none; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: var(--radius); background: var(--c-red); color: var(--c-white); }
+    .doc__body { display: flex; flex-direction: column; gap: 4px; }
+    .doc__title { font-family: var(--f-head); font-weight: 600; font-size: 20px; text-transform: uppercase; }
+    .doc__meta { color: var(--c-muted); font-size: 14px; }
+
+    .faq { display: flex; flex-direction: column; gap: 12px; max-width: 860px; }
+    .faq__item { border-radius: var(--radius); background: var(--c-white); }
+    .faq__question { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 12px 20px; font-weight: 600; font-size: 17px; cursor: pointer; list-style: none; border-radius: var(--radius); }
+    .faq__question::-webkit-details-marker { display: none; }
+    .faq__question:focus-visible { outline: 3px solid var(--c-yellow); outline-offset: 2px; }
+    .faq__icon { flex: none; position: relative; width: 44px; height: 44px; border-radius: 50%; background: var(--c-gray); }
+    .faq__icon::before, .faq__icon::after { content: ""; position: absolute; top: 50%; left: 50%; width: 14px; height: 2px; background: var(--c-graphite); transform: translate(-50%, -50%); transition: transform .2s ease; }
+    .faq__icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+    .faq__item[open] .faq__icon { background: var(--c-red); }
+    .faq__item[open] .faq__icon::before, .faq__item[open] .faq__icon::after { background: var(--c-white); }
+    .faq__item[open] .faq__icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+    .faq__answer { padding: 0 20px 20px; color: var(--c-muted); max-width: 70ch; }
+
+    .booking { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .booking__text { max-width: 56ch; color: rgba(255,255,255,.8); }
+
+    @media (min-width: 768px) {
+      .included { flex-direction: row; }
+      .included__item { flex: 1; }
+      .options__grid { flex-direction: row; }
+      .option { flex: 1; }
+      .doc { flex-direction: row; align-items: center; }
+      .doc__body { flex: 1; }
+      .booking { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    @media (min-width: 1024px) {
+      .options { flex-direction: row; }
+      .options__group { flex: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq__icon::before, .faq__icon::after { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="storage.html#main">Перейти к содержимому</a>
+
+  <!-- ===== Шапка и меню ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+        <svg class="logo__icon" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <circle cx="20" cy="20" r="6" fill="#C8361D"></circle>
+          <path d="M20 2v10M20 28v10M2 20h10M28 20h10" stroke="currentColor" stroke-width="3"></path>
+        </svg>
+        <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+      </a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tires.html">Шиномонтаж</a></li>
+          <li><a class="nav__link is-active" href="storage.html" aria-current="page">Хранение</a></li>
+          <li><a class="nav__link" href="services.html">Автосервис</a></li>
+          <li><a class="nav__link" href="winter-tips.html">Когда переобуваться</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="contact_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Заголовок страницы ===== -->
+    <section class="page-head" aria-labelledby="page-title" style="background: 
+          url('img/wheel.webp') right -10% center / auto 140% no-repeat, 
+          linear-gradient(100deg, rgba(31,34,38,.96) 0%, rgba(31,34,38,.85) 55%, rgba(200,54,29,.75) 100%), 
+          repeating-linear-gradient(135deg, rgba(42,46,51,.6) 0 14px, rgba(31,34,38,.6) 14px 28px);">
+      <div class="container page-head__inner">
+        <nav aria-label="Хлебные крошки">
+          <ol class="breadcrumbs">
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Хранение шин</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-head__title" id="page-title">Хранение шин</h1>
+        <p class="page-head__lead">Сезонное хранение комплекта из 4 шин в сухом отапливаемом складе. Принимаем шины как на дисках, так и без дисков. Мойка и фирменные пакеты уже включены в стоимость — просто оставьте колёса после переобувки.</p>
+        <ul class="page-head__list">
+          <li>Мойка включена</li>
+          <li>Пакеты включены</li>
+          <li>На дисках и без дисков</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Варианты и цены ===== -->
+    <section class="section" id="options" aria-labelledby="options-title">
+      <div class="container">
+        <h2 class="section__title" id="options-title">Варианты хранения и цены</h2>
+        <p class="section__lead">Цена указана за комплект из 4 шин на один сезон (до 6 месяцев).</p>
+
+        <ol class="included" aria-label="Что входит в хранение">
+          <li class="included__item">
+            <span class="included__num" aria-hidden="true">1</span>
+            <div>
+              <p class="included__title">Мойка</p>
+              <p class="included__text">Отмываем шины и диски от грязи и реагентов перед закладкой.</p>
+            </div>
+          </li>
+          <li class="included__item">
+            <span class="included__num" aria-hidden="true">2</span>
+            <div>
+              <p class="included__title">Упаковка</p>
+              <p class="included__text">Каждое колесо — в плотный пакет с биркой и номером комплекта.</p>
+            </div>
+          </li>
+          <li class="included__item">
+            <span class="included__num" aria-hidden="true">3</span>
+            <div>
+              <p class="included__title">Склад</p>
+              <p class="included__text">Стеллажи в сухом помещении при +10…+25 °C, без солнца.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="options">
+          <div class="options__group">
+            <h3 class="options__group-title">Шины без дисков</h3>
+            <div class="options__grid">
+              <article class="card option">
+                <h4 class="option__rim">R13–R17</h4>
+                <p class="option__desc">Хранение вертикально на стеллаже.</p>
+                <p class="option__price">3 000 ₽ <small>/ сезон</small></p>
+                <a class="btn btn--primary btn--block" href="contacts.html?storage=tires&amp;rim=R13-R17#booking" data-event="storage_select" data-storage-type="tires" data-rim-group="R13-R17" data-page-section="storage_options" aria-label="Выбрать хранение шин без дисков R13–R17">Выбрать</a>
+              </article>
+              <article class="card option">
+                <h4 class="option__rim">R18 и больше</h4>
+                <p class="option__desc">Хранение вертикально на стеллаже.</p>
+                <p class="option__price">3 800 ₽ <small>/ сезон</small></p>
+                <a class="btn btn--primary btn--block" href="contacts.html?storage=tires&amp;rim=R18+#booking" data-event="storage_select" data-storage-type="tires" data-rim-group="R18+" data-page-section="storage_options" aria-label="Выбрать хранение шин без дисков R18 и больше">Выбрать</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="options__group">
+            <h3 class="options__group-title">Шины на дисках</h3>
+            <div class="options__grid">
+              <article class="card option">
+                <h4 class="option__rim">R13–R17</h4>
+                <p class="option__desc">Хранение стопкой или на подвесе.</p>
+                <p class="option__price">3 000 ₽ <small>/ сезон</small></p>
+                <a class="btn btn--primary btn--block" href="contacts.html?storage=wheels&amp;rim=R13-R17#booking" data-event="storage_select" data-storage-type="wheels" data-rim-group="R13-R17" data-page-section="storage_options" aria-label="Выбрать хранение шин на дисках R13–R17">Выбрать</a>
+              </article>
+              <article class="card option">
+                <h4 class="option__rim">R18 и больше</h4>
+                <p class="option__desc">Хранение стопкой или на подвесе.</p>
+                <p class="option__price">3 800 ₽ <small>/ сезон</small></p>
+                <a class="btn btn--primary btn--block" href="contacts.html?storage=wheels&amp;rim=R18+#booking" data-event="storage_select" data-storage-type="wheels" data-rim-group="R18+" data-page-section="storage_options" aria-label="Выбрать хранение шин на дисках R18 и больше">Выбрать</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Договор ===== -->
+    <section class="section" id="agreement" aria-labelledby="agreement-title">
+      <div class="container">
+        <h2 class="section__title" id="agreement-title">Договор хранения</h2>
+        <div class="card doc">
+          <span class="doc__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path d="M6 2h8l6 6v14H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M14 2v6h6M9 14h6M9 18h6" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+          </span>
+          <div class="doc__body">
+            <p class="doc__title">Договор сезонного хранения шин</p>
+            <p class="doc__meta">PDF · условия приёма, хранения и выдачи комплекта</p>
+          </div>
+          <a class="btn btn--primary" href="files/storage-agreement.pdf" download="storage-agreement.pdf" data-event="file_download" data-file-name="storage-agreement.pdf" data-file-type="pdf" data-page-section="agreement">Скачать PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section--gray" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+        <div class="faq">
+          <details class="faq__item" data-event="faq_open" data-question-id="storage_period" data-page-section="faq">
+            <summary class="faq__question">Сколько длится сезон хранения?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <p class="faq__answer">Один сезон — до 6 месяцев. Если нужно оставить шины дольше, продлим хранение по той же цене пропорционально сроку.</p>
+          </details>
+          <details class="faq__item" data-event="faq_open" data-question-id="storage_included" data-page-section="faq">
+            <summary class="faq__question">Что входит в стоимость?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <p class="faq__answer">Мойка шин и дисков, упаковка каждого колеса в пакет с биркой, хранение на стеллаже в отапливаемом складе и выдача комплекта по записи.</p>
+          </details>
+          <details class="faq__item" data-event="faq_open" data-question-id="storage_wheels" data-page-section="faq">
+            <summary class="faq__question">Есть ли разница между хранением на дисках и без?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <p class="faq__answer">Цена одинаковая и зависит только от диаметра. Шины без дисков храним вертикально, колёса на дисках — стопкой или на подвесе, чтобы не деформировался корд.</p>
+          </details>
+          <details class="faq__item" data-event="faq_open" data-question-id="storage_pickup" data-page-section="faq">
+            <summary class="faq__question">Как забрать шины?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <p class="faq__answer">Запишитесь на шиномонтаж — мы заранее подготовим ваш комплект к визиту. Для выдачи нужен договор или паспорт владельца.</p>
+          </details>
+          <details class="faq__item" data-event="faq_open" data-question-id="storage_liability" data-page-section="faq">
+            <summary class="faq__question">Кто отвечает за сохранность?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <p class="faq__answer">Мы несём ответственность за комплект на весь срок по договору хранения. Склад охраняется и находится под видеонаблюдением.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Запись ===== -->
+    <section class="section section--dark" id="booking" aria-labelledby="booking-title">
+      <div class="container booking">
+        <div>
+          <h2 class="section__title" id="booking-title">Переобуем и примем на хранение</h2>
+          <p class="booking__text">Запишитесь на шиномонтаж — снятый комплект сразу помоем, упакуем и отправим на склад.</p>
+        </div>
+        <a class="btn btn--primary btn--lg" href="contacts.html#booking" data-event="cta_click" data-button-name="storage_booking" data-page-section="booking">Записаться</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Подвал ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <a class="logo logo--light" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+          <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+        </a>
+        <p class="footer__about">Шиномонтаж, хранение шин и автосервис в Новоозёрске.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Навигация в подвале">
+        <h2 class="footer__title">Разделы</h2>
+        <ul class="footer__list">
+          <li><a href="tires.html">Шиномонтаж</a></li>
+          <li><a href="storage.html" aria-current="page">Хранение</a></li>
+          <li><a href="services.html">Автосервис</a></li>
+          <li><a href="winter-tips.html">Когда переобуваться</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer__col">
+        <h2 class="footer__title">Контакты</h2>
+        <ul class="footer__list">
+          <li>г. Новоозёрск, Объездное шоссе, д. 21</li>
+          <li><a href="tel:+79000002121" data-event="contact_click" data-button-name="footer_phone" data-page-section="footer">+7 (900) 000-21-21</a></li>
+          <li><a href="mailto:info@koleso21.ru">info@koleso21.ru</a></li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </address>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Мы в соцсетях</h2>
+        <ul class="socials">
+          <li>
+            <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="instagram" data-page-section="footer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://vk.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="vk" data-page-section="footer" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h3c.4 3.5 2 5.5 3.5 6V7h3v3.5c1.5-.2 3-2 3.5-3.5h3c-.5 2.2-2.2 4-3.4 4.8 1.2.6 3.1 2.2 3.9 5.2h-3.3c-.7-2-2.2-3.5-3.7-3.7V17H12c-5 0-8.6-3.5-9-10z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="telegram" data-page-section="footer" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 4 2.8 11.1c-1 .4-1 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.9.8 1.4.4l2.6-2.1 4.8 3.5c.6.4 1.4.1 1.5-.6L22 5.2c.2-.9-.4-1.5-1-1.2zM9.5 14.2l8-6.2-6.5 7.2-.3 2.8-1.2-3.8z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 КОЛЕСО 21. Все права защищены.</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+</body>
+</html>
