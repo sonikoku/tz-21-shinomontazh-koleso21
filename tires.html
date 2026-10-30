@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://website-project-plan-21.v0.build/tires.html -->
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Шиномонтаж в Новоозёрске — цены от 1 600 ₽ | КОЛЕСО 21</title>
+  <meta name="description" content="Комплексный шиномонтаж 4 колёс в Новоозёрске: снятие, монтаж, балансировка. Цены по диаметру R13–R20+, онлайн-калькулятор и запись без очереди.">
+  <meta name="theme-color" content="#1F2226">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Шиномонтаж — КОЛЕСО 21">
+  <meta property="og:description" content="Цены на шиномонтаж по диаметру дисков и онлайн-запись.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="img/og.jpg">
+
+  <!-- Google Analytics 4: замените G-XXXXXXXXXX на реальный идентификатор -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Шрифты Oswald и Inter с кириллицей -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&subset=cyrillic">
+
+  <!-- Твои локальные стили и скрипты -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Стили, специфичные для страницы «Шиномонтаж» (общий style.css не изменяется) -->
+  <style>
+    .page-head { background: var(--c-graphite); color: var(--c-white); }
+    .page-head__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 48px; padding-bottom: 56px; }
+    .breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: rgba(255,255,255,.7); }
+    .breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; }
+    .breadcrumbs li { display: flex; align-items: center; }
+    .page-head__title { font-size: clamp(36px, 8vw, 64px); font-weight: 700; text-transform: uppercase; }
+    .page-head__lead { font-size: 18px; max-width: 60ch; color: rgba(255,255,255,.85); text-wrap: pretty; }
+    .page-head__list { display: flex; flex-wrap: wrap; gap: 8px 24px; color: rgba(255,255,255,.75); font-size: 15px; }
+    .page-head__list li { display: flex; align-items: center; gap: 8px; }
+    .page-head__list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c-red); }
+
+    .prices { display: flex; flex-direction: column; gap: 24px; }
+    .price-table-wrap { padding: 0; overflow: hidden; }
+    .price-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+    .price-table caption { text-align: left; padding: 20px 24px 0; color: var(--c-muted); font-size: 14px; }
+    .price-table th, .price-table td { padding: 16px 24px; text-align: left; border-bottom: 1px solid var(--c-gray); }
+    .price-table thead th { font-family: var(--f-head); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; font-size: 14px; color: var(--c-muted); }
+    .price-table tbody th { font-family: var(--f-head); font-weight: 600; font-size: 20px; }
+    .price-table td { text-align: right; font-family: var(--f-head); font-weight: 600; font-size: 22px; color: var(--c-red); white-space: nowrap; }
+    .price-table thead th:last-child { text-align: right; }
+    .price-table tbody tr:last-child th, .price-table tbody tr:last-child td { border-bottom: 0; }
+
+    .surcharges { display: flex; flex-direction: column; gap: 16px; }
+    .surcharges__title { font-size: 22px; font-weight: 600; text-transform: uppercase; }
+    .surcharges__list { display: flex; flex-direction: column; gap: 12px; }
+    .surcharge { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-radius: var(--radius); background: var(--c-gray); }
+    .surcharge__name { font-weight: 500; }
+    .surcharge__value { font-family: var(--f-head); font-weight: 700; font-size: 22px; padding: 4px 12px; border-radius: 6px; background: var(--c-yellow); color: var(--c-graphite); white-space: nowrap; }
+    .surcharges__note { font-size: 14px; color: var(--c-muted); }
+
+    .booking { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .booking__text { max-width: 56ch; color: rgba(255,255,255,.8); }
+
+    @media (min-width: 768px) {
+      .booking { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    @media (min-width: 1024px) {
+      .prices { display: grid; grid-template-columns: 3fr 2fr; align-items: start; }
+    }
+    @media (max-width: 479px) {
+      .price-table th, .price-table td { padding: 14px 16px; }
+      .price-table caption { padding: 16px 16px 0; }
+      .price-table td { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="tires.html#main">Перейти к содержимому</a>
+
+  <!-- ===== Шапка и меню ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+        <svg class="logo__icon" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <circle cx="20" cy="20" r="6" fill="#C8361D"></circle>
+          <path d="M20 2v10M20 28v10M2 20h10M28 20h10" stroke="currentColor" stroke-width="3"></path>
+        </svg>
+        <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+      </a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link is-active" href="tires.html" aria-current="page">Шиномонтаж</a></li>
+          <li><a class="nav__link" href="storage.html">Хранение</a></li>
+          <li><a class="nav__link" href="services.html">Автосервис</a></li>
+          <li><a class="nav__link" href="winter-tips.html">Когда переобуваться</a></li>
+          <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="contact_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Заголовок страницы ===== -->
+    <section class="page-head" aria-labelledby="page-title" style="background: 
+          url('img/wheel.webp') right -10% center / auto 140% no-repeat, 
+          linear-gradient(100deg, rgba(31,34,38,.96) 0%, rgba(31,34,38,.85) 55%, rgba(200,54,29,.75) 100%), 
+          repeating-linear-gradient(135deg, rgba(42,46,51,.6) 0 14px, rgba(31,34,38,.6) 14px 28px);">
+      <div class="container page-head__inner">
+        <nav aria-label="Хлебные крошки">
+          <ol class="breadcrumbs">
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Шиномонтаж</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-head__title" id="page-title">Шиномонтаж</h1>
+        <p class="page-head__lead">Комплексная сезонная переобувка четырёх колёс за 30–50 минут: снятие, демонтаж и монтаж шин, балансировка и затяжка динамометрическим ключом. Работаем по записи — без очередей.</p>
+        <ul class="page-head__list">
+          <li>Диаметры R13–R22</li>
+          <li>Литые и штампованные диски</li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Цены ===== -->
+    <section class="section" id="prices" aria-labelledby="prices-title">
+      <div class="container">
+        <h2 class="section__title" id="prices-title">Цены на шиномонтаж</h2>
+        <p class="section__lead">Стоимость комплексного шиномонтажа 4 колёс для легкового автомобиля. Для кроссоверов и внедорожников действует надбавка.</p>
+
+        <div class="prices">
+          <div class="card price-table-wrap">
+            <table class="price-table">
+              <caption>Комплекс: снятие, монтаж, балансировка, установка</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Диаметр</th>
+                  <th scope="col">Цена за 4 колеса</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-event="service_view" data-service-name="Шиномонтаж R13-R15" data-page-section="prices">
+                  <th scope="row">R13–R15</th>
+                  <td>1 600 ₽</td>
+                </tr>
+                <tr data-event="service_view" data-service-name="Шиномонтаж R16-R17" data-page-section="prices">
+                  <th scope="row">R16–R17</th>
+                  <td>2 200 ₽</td>
+                </tr>
+                <tr data-event="service_view" data-service-name="Шиномонтаж R18-R19" data-page-section="prices">
+                  <th scope="row">R18–R19</th>
+                  <td>2 900 ₽</td>
+                </tr>
+                <tr data-event="service_view" data-service-name="Шиномонтаж R20+" data-page-section="prices">
+                  <th scope="row">R20+</th>
+                  <td>3 600 ₽</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside class="card surcharges" aria-labelledby="surcharges-title">
+            <h3 class="surcharges__title" id="surcharges-title">Надбавки по типу авто</h3>
+            <ul class="surcharges__list">
+              <li class="surcharge">
+                <span class="surcharge__name">Кроссовер</span>
+                <span class="surcharge__value">+10%</span>
+              </li>
+              <li class="surcharge">
+                <span class="surcharge__name">Внедорожник / минивэн</span>
+                <span class="surcharge__value">+20%</span>
+              </li>
+            </ul>
+            <p class="surcharges__note">Надбавка начисляется к базовой цене по диаметру. Точную сумму покажет калькулятор ниже.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Калькулятор ===== -->
+    <section class="section section--gray" id="calculator" aria-labelledby="calc-title">
+      <div class="container calc">
+        <div class="calc__intro">
+          <h2 class="section__title" id="calc-title">Калькулятор шиномонтажа</h2>
+          <p class="section__lead">Выберите диаметр дисков и тип автомобиля — покажем стоимость комплексной переобувки четырёх колёс.</p>
+        </div>
+
+        <form class="calc__form card" id="calc-form" novalidate="">
+          <div class="field">
+            <label class="field__label" for="rim-size">Диаметр шин</label>
+            <select class="field__control" id="rim-size" name="rim_size" required="">
+              <option value="R13-R15">R13–R15</option>
+              <option value="R16-R17" selected="">R16–R17</option>
+              <option value="R18-R19">R18–R19</option>
+              <option value="R20+">R20+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="car-type">Тип автомобиля</label>
+            <select class="field__control" id="car-type" name="car_type" required="">
+              <option value="легковой" selected="">Легковой</option>
+              <option value="кроссовер">Кроссовер</option>
+              <option value="внедорожник">Внедорожник / минивэн</option>
+            </select>
+          </div>
+
+          <label class="checkbox">
+            <input class="checkbox__input" type="checkbox" id="add-storage" name="add_storage">
+            <span class="checkbox__box" aria-hidden="true"></span>
+            <span class="checkbox__text">Добавить сезонное хранение шин</span>
+          </label>
+
+          <button class="btn btn--primary btn--block" type="submit" data-event="tire_calc" data-button-name="calc_submit" data-page-section="calculator">Рассчитать</button>
+
+          <div class="calc__result" id="calc-result" aria-live="polite" hidden="">
+            <div class="calc__row">
+              <span>Комплексный шиномонтаж</span>
+              <strong class="calc__price" id="result-package">0 ₽</strong>
+            </div>
+            <div class="calc__row" id="result-storage-row" hidden="">
+              <span>Хранение шин (сезон)</span>
+              <strong class="calc__price" id="result-storage">0 ₽</strong>
+            </div>
+            <div class="calc__row calc__row--total">
+              <span>Итого</span>
+              <strong class="calc__price calc__price--total" id="result-total">0 ₽</strong>
+            </div>
+            <p class="calc__note">Цена ориентировочная, включает снятие, монтаж, балансировку и установку 4 колёс.</p>
+            <a class="btn btn--primary btn--block" id="calc-book-btn" href="contacts.html#booking" style="margin-top: 16px;" data-event="cta_click" data-button-name="calc_booking" data-page-section="calculator">Записаться с этим расчётом</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Запись ===== -->
+    <section class="section section--dark" id="booking" aria-labelledby="booking-title">
+      <div class="container booking">
+        <div>
+          <h2 class="section__title" id="booking-title">Запишитесь без очереди</h2>
+          <p class="booking__text">Выберите удобное время — мастер примет автомобиль сразу по приезде.</p>
+        </div>
+        <a class="btn btn--primary btn--lg" href="contacts.html#booking" data-event="cta_click" data-button-name="tires_booking" data-page-section="booking">Записаться</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Подвал ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <a class="logo logo--light" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+          <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+        </a>
+        <p class="footer__about">Шиномонтаж, хранение шин и автосервис в Новоозёрске.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Навигация в подвале">
+        <h2 class="footer__title">Разделы</h2>
+        <ul class="footer__list">
+          <li><a href="tires.html" aria-current="page">Шиномонтаж</a></li>
+          <li><a href="storage.html">Хранение</a></li>
+          <li><a href="services.html">Автосервис</a></li>
+          <li><a href="winter-tips.html">Когда переобуваться</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer__col">
+        <h2 class="footer__title">Контакты</h2>
+        <ul class="footer__list">
+          <li>г. Новоозёрск, Объездное шоссе, д. 21</li>
+          <li><a href="tel:+79000002121" data-event="contact_click" data-button-name="footer_phone" data-page-section="footer">+7 (900) 000-21-21</a></li>
+          <li><a href="mailto:info@koleso21.ru">info@koleso21.ru</a></li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </address>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Мы в соцсетях</h2>
+        <ul class="socials">
+          <li>
+            <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="instagram" data-page-section="footer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://vk.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="vk" data-page-section="footer" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h3c.4 3.5 2 5.5 3.5 6V7h3v3.5c1.5-.2 3-2 3.5-3.5h3c-.5 2.2-2.2 4-3.4 4.8 1.2.6 3.1 2.2 3.9 5.2h-3.3c-.7-2-2.2-3.5-3.7-3.7V17H12c-5 0-8.6-3.5-9-10z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="telegram" data-page-section="footer" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 4 2.8 11.1c-1 .4-1 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.9.8 1.4.4l2.6-2.1 4.8 3.5c.6.4 1.4.1 1.5-.6L22 5.2c.2-.9-.4-1.5-1-1.2zM9.5 14.2l8-6.2-6.5 7.2-.3 2.8-1.2-3.8z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 КОЛЕСО 21. Все права защищены.</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+
+</body></html>
