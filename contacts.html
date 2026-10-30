@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Запись и контакты — КОЛЕСО 21, Новоозёрск</title>
+  <meta name="description" content="Запись на шиномонтаж, хранение шин и автосервис в Новоозёрске. Выберите удобную дату и время. Контакты, телефон, мессенджеры и схема проезда.">
+  <meta name="theme-color" content="#1F2226">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Запись и контакты — КОЛЕСО 21">
+  <meta property="og:description" content="Онлайн-запись на обслуживание и контакты сервиса в Новоозёрске.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="img/og.jpg">
+
+  <!-- Google Analytics 4 -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap&subset=cyrillic">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <style>
+    .page-head { background: var(--c-graphite); color: var(--c-white); }
+    .page-head__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 48px; padding-bottom: 56px; }
+    .breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: rgba(255,255,255,.7); }
+    .breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; }
+    .breadcrumbs li { display: flex; align-items: center; }
+    .page-head__title { font-size: clamp(36px, 8vw, 64px); font-weight: 700; text-transform: uppercase; }
+    .page-head__lead { font-size: 18px; max-width: 60ch; color: rgba(255,255,255,.85); text-wrap: pretty; }
+
+    /* Фикс для текстовых полей (убираем стрелочку от select) */
+    input.field__control {
+      background-image: none !important;
+      padding-right: 14px !important;
+      cursor: text;
+    }
+
+    .contacts-layout { display: flex; flex-direction: column; gap: 40px; }
+    @media (min-width: 1024px) { .contacts-layout { flex-direction: row; align-items: flex-start; gap: 64px; } }
+    
+    .booking-widget { flex: 1 1 60%; display: flex; flex-direction: column; gap: 24px; }
+    .contacts-info { flex: 1 1 40%; display: flex; flex-direction: column; gap: 24px; }
+
+    /* Даты */
+    .dates-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: thin; scroll-snap-type: x mandatory; }
+    .date-btn { flex: none; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 72px; height: 72px; padding: 8px; border: 2px solid #CDD1D6; border-radius: var(--radius); background: var(--c-white); cursor: pointer; transition: border-color .2s, background-color .2s; scroll-snap-align: start; }
+    .date-btn:hover { border-color: var(--c-graphite); }
+    .date-btn.is-active { border-color: var(--c-red); background: var(--c-red); color: var(--c-white); }
+    .date-btn__weekday { font-size: 12px; text-transform: uppercase; font-weight: 600; }
+    .date-btn__day { font-size: 20px; font-weight: 700; font-family: var(--f-head); line-height: 1; margin-top: 4px; }
+    .date-btn__month { font-size: 12px; }
+
+    /* Слоты */
+    .slots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 12px; }
+    .slot-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px; border: 2px solid #CDD1D6; border-radius: var(--radius); background: var(--c-white); font-family: var(--f-head); font-weight: 600; font-size: 16px; cursor: pointer; transition: border-color .2s, background-color .2s; }
+    .slot-btn:hover:not(:disabled) { border-color: var(--c-graphite); }
+    .slot-btn.is-selected { border-color: var(--c-red); background: var(--c-red); color: var(--c-white); }
+    .slot-btn:disabled { background: var(--c-gray); color: var(--c-muted); border-color: var(--c-gray); cursor: not-allowed; opacity: 0.6; }
+    .slot-btn__meta { font-family: var(--f-body); font-size: 11px; font-weight: 400; margin-top: 2px; }
+
+    /* Форма */
+    .form-row { display: flex; flex-direction: column; gap: 16px; }
+    @media (min-width: 768px) { .form-row { flex-direction: row; } .form-row > * { flex: 1; } }
+    .input-error { border-color: var(--c-red) !important; outline-color: var(--c-red); }
+    .field-error-msg { color: var(--c-red); font-size: 13px; margin-top: 4px; display: none; }
+    .field-error-msg.is-visible { display: block; }
+
+    .contacts-card { display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--c-gray); border-radius: var(--radius); }
+    .contact-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 16px; font-weight: 500; text-decoration: none; color: var(--c-graphite); }
+    .contact-link:hover { color: var(--c-red); }
+    .contact-link svg { flex: none; }
+
+    .map-block { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="contacts.html#main">Перейти к содержимому</a>
+
+  <!-- ===== Шапка и меню ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+        <svg class="logo__icon" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <circle cx="20" cy="20" r="6" fill="#C8361D"></circle>
+          <path d="M20 2v10M20 28v10M2 20h10M28 20h10" stroke="currentColor" stroke-width="3"></path>
+        </svg>
+        <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+      </a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Главная</a></li>
+          <li><a class="nav__link" href="tires.html">Шиномонтаж</a></li>
+          <li><a class="nav__link" href="storage.html">Хранение</a></li>
+          <li><a class="nav__link" href="services.html">Автосервис</a></li>
+          <li><a class="nav__link" href="winter-tips.html">Когда переобуваться</a></li>
+          <li><a class="nav__link is-active" href="contacts.html" aria-current="page">Контакты</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="contact_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Заголовок страницы ===== -->
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container page-head__inner">
+        <nav aria-label="Хлебные крошки">
+          <ol class="breadcrumbs">
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Контакты</span></li>
+          </ol>
+        </nav>
+        <h1 class="page-head__title" id="page-title">Запись и контакты</h1>
+        <p class="page-head__lead">Выберите удобную дату и время для визита. Или свяжитесь с нами по телефону и в мессенджерах.</p>
+      </div>
+    </section>
+
+    <!-- ===== Контент ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="contacts-layout">
+          
+          <!-- Левая колонка: Запись -->
+          <div class="booking-widget" id="booking">
+            <div class="card">
+              <h2 class="section__title" style="font-size: 24px; margin-bottom: 16px;">Онлайн-запись</h2>
+              
+              <!-- Шаг 1: Дата -->
+              <div style="margin-bottom: 24px;">
+                <p class="field__label" style="margin-bottom: 8px;">1. Выберите дату</p>
+                <div class="dates-scroll" id="dates-container" aria-label="Выбор даты"></div>
+              </div>
+
+              <!-- Шаг 2: Время -->
+              <div style="margin-bottom: 24px;">
+                <p class="field__label" style="margin-bottom: 8px;">2. Выберите время</p>
+                <div class="slots-grid" id="slots-container" aria-live="polite">
+                  <p style="color: var(--c-muted); grid-column: 1 / -1;">Сначала выберите дату</p>
+                </div>
+              </div>
+
+              <!-- Шаг 3: Форма -->
+              <form id="booking-form" novalidate>
+                <input type="hidden" name="request_id" id="request_id" value="">
+                <input type="hidden" name="utm_source" id="utm_source" value="">
+                <input type="hidden" name="utm_medium" id="utm_medium" value="">
+                <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+                <input type="hidden" name="utm_content" id="utm_content" value="">
+                <input type="hidden" name="selected_slot" id="selected_slot" value="">
+
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="name">Имя *</label>
+                    <input class="field__control" type="text" id="name" name="name" required minlength="2" maxlength="50" autocomplete="name">
+                    <p class="field-error-msg" id="name-error">Пожалуйста, введите имя</p>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="phone">Телефон *</label>
+                    <input class="field__control" type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel">
+                    <p class="field-error-msg" id="phone-error">Пожалуйста, введите телефон</p>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="email">Email</label>
+                  <input class="field__control" type="email" id="email" name="email" autocomplete="email">
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="car_type">Тип автомобиля *</label>
+                    <select class="field__control" id="car_type" name="car_type" required>
+                      <option value="" disabled selected>Выберите</option>
+                      <option value="car">Легковой</option>
+                      <option value="crossover">Кроссовер</option>
+                      <option value="suv">Внедорожник</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="rim_size">Диаметр шин *</label>
+                    <select class="field__control" id="rim_size" name="rim_size" required>
+                      <option value="" disabled selected>Выберите</option>
+                      <option value="r13_15">R13–R15</option>
+                      <option value="r16_17">R16–R17</option>
+                      <option value="r18_19">R18–R19</option>
+                      <option value="r20_plus">R20+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="margin-top: 16px;">
+                  <label class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="consent" name="consent" required>
+                    <span class="checkbox__box" aria-hidden="true"></span>
+                    <span class="checkbox__text">Согласен на обработку персональных данных <a href="privacy.html" target="_blank" style="text-decoration: underline; color: var(--c-red);">политика конфиденциальности</a></span>
+                  </label>
+                  <p class="field-error-msg" id="consent-error">Необходимо согласие</p>
+                </div>
+
+                <div style="margin-top: 24px;">
+                  <button class="btn btn--primary btn--block btn--lg" type="submit" id="submit-btn" disabled>Выберите время и оставьте заявку</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Правая колонка: Контакты -->
+          <div class="contacts-info">
+            <div class="contacts-card">
+              <h2 class="section__title" style="font-size: 24px;">Связаться с нами</h2>
+              
+              <a class="contact-link" href="tel:+79000002121" data-event="messenger_click" data-messenger="phone">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                +7 (900) 000-21-21
+              </a>
+
+              <a class="contact-link" href="https://t.me/koleso21" target="_blank" rel="noopener noreferrer" data-event="messenger_click" data-messenger="telegram">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M21 4 2.8 11.1c-1 .4-1 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.9.8 1.4.4l2.6-2.1 4.8 3.5c.6.4 1.4.1 1.5-.6L22 5.2c.2-.9-.4-1.5-1-1.2zM9.5 14.2l8-6.2-6.5 7.2-.3 2.8-1.2-3.8z" fill="currentColor"/></svg>
+                Telegram
+              </a>
+
+              <a class="contact-link" href="https://wa.me/79000002121" target="_blank" rel="noopener noreferrer" data-event="messenger_click" data-messenger="whatsapp">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.3 0-.4.1-.6l.6-.7c.1-.2.1-.3 0-.5l-.7-1.6c-.2-.4-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7a9 9 0 0 0 3.5 3.1c1.2.5 1.7.5 2.3.4.6-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z" fill="currentColor"/></svg>
+                WhatsApp
+              </a>
+              
+              <p style="font-size: 14px; color: var(--c-muted); margin-top: 8px;">Ежедневно с 8:00 до 20:00</p>
+              <p style="font-size: 14px; color: var(--c-muted);">г. Новоозёрск, Объездное шоссе, д. 21</p>
+            </div>
+
+            <div class="map-block">
+              <h2 class="section__title" style="font-size: 24px;">Как нас найти</h2>
+              <p style="color: var(--c-muted); margin-bottom: 12px;">Мы находимся на Объездном шоссе, дом 21. Заезд с главной дороги, ориентир — шинный центр.</p>
+              
+              <!-- ВОТ ЗДЕСЬ ВСТАВЛЕНА КАРТИНКА КАРТЫ -->
+              <a href="https://yandex.ru/maps/?text=Новоозёрск, Объездное шоссе, 21" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 data-event="map_open"
+                 style="display: block; border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; border: 1px solid var(--c-gray);">
+                <img src="img/map.webp" alt="Схема проезда до шиномонтажа КОЛЕСО 21" style="width: 100%; height: auto; display: block;">
+              </a>
+
+              <!-- Кнопка для навигатора -->
+              <a class="btn btn--secondary btn--block" href="https://yandex.ru/maps/?text=Новоозёрск, Объездное шоссе, 21" target="_blank" rel="noopener noreferrer" data-event="map_open">
+                <svg viewBox="0 0 24 24" width="20" height="20" style="margin-right: 8px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                Построить маршрут
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Подвал ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <a class="logo logo--light" href="index.html" aria-label="КОЛЕСО 21 — на главную">
+          <span class="logo__text">КОЛЕСО <span class="logo__accent">21</span></span>
+        </a>
+        <p class="footer__about">Шиномонтаж, хранение шин и автосервис в Новоозёрске.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Навигация в подвале">
+        <h2 class="footer__title">Разделы</h2>
+        <ul class="footer__list">
+          <li><a href="tires.html">Шиномонтаж</a></li>
+          <li><a href="storage.html">Хранение</a></li>
+          <li><a href="services.html">Автосервис</a></li>
+          <li><a href="winter-tips.html">Когда переобуваться</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer__col">
+        <h2 class="footer__title">Контакты</h2>
+        <ul class="footer__list">
+          <li>г. Новоозёрск, Объездное шоссе, д. 21</li>
+          <li><a href="tel:+79000002121" data-event="contact_click" data-button-name="footer_phone" data-page-section="footer">+7 (900) 000-21-21</a></li>
+          <li><a href="mailto:info@koleso21.ru">info@koleso21.ru</a></li>
+          <li>Ежедневно 8:00–20:00</li>
+        </ul>
+      </address>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Мы в соцсетях</h2>
+        <ul class="socials">
+          <li>
+            <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="instagram" data-page-section="footer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://vk.com/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="vk" data-page-section="footer" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h3c.4 3.5 2 5.5 3.5 6V7h3v3.5c1.5-.2 3-2 3.5-3.5h3c-.5 2.2-2.2 4-3.4 4.8 1.2.6 3.1 2.2 3.9 5.2h-3.3c-.7-2-2.2-3.5-3.7-3.7V17H12c-5 0-8.6-3.5-9-10z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" data-event="social_click" data-network="telegram" data-page-section="footer" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 4 2.8 11.1c-1 .4-1 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.9.8 1.4.4l2.6-2.1 4.8 3.5c.6.4 1.4.1 1.5-.6L22 5.2c.2-.9-.4-1.5-1-1.2zM9.5 14.2l8-6.2-6.5 7.2-.3 2.8-1.2-3.8z" fill="currentColor"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 КОЛЕСО 21. Все права защищены.</p>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <!-- Скрипт для страницы записи -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ===== Конфигурация ===== */
+      const API_URL = "YOUR_APPS_SCRIPT_URL_HERE"; 
+      
+      const OCCUPANCY = {
+        // '2026-11-03': { '08:00': 4, '09:00': 3, '12:00': 4 },
+        // '2026-11-04': { '10:00': 4, '15:00': 2 }
+      };
+
+      const SLOT_TIMES = [
+        '08:00', '09:00', '10:00', '11:00', '12:00', 
+        '13:00', '14:00', '15:00', '16:00', '17:00', 
+        '18:00', '19:00', '20:00'
+      ];
+
+      const WEEKDAYS = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+      const MONTHS = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+
+      let selectedDate = null;
+      let selectedTime = null;
+
+      /* ===== Утилиты ===== */
+      function getUTMParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('utm_source').value = urlParams.get('utm_source') || '';
+        document.getElementById('utm_medium').value = urlParams.get('utm_medium') || '';
+        document.getElementById('utm_campaign').value = urlParams.get('utm_campaign') || '';
+        document.getElementById('utm_content').value = urlParams.get('utm_content') || '';
+      }
+
+      // Автозаполнение из калькулятора
+      function prefillForm() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const carType = urlParams.get('car_type');
+        const rimSize = urlParams.get('rim_size');
+        const storage = urlParams.get('storage');
+
+        if (carType) {
+          const carSelect = document.getElementById('car_type');
+          if (carSelect) carSelect.value = carType;
+        }
+        if (rimSize) {
+          const rimSelect = document.getElementById('rim_size');
+          if (rimSelect) rimSelect.value = rimSize;
+        }
+        if (storage === '1') {
+            const consentText = document.querySelector('.checkbox__text');
+            if(consentText) {
+                consentText.insertAdjacentHTML('beforeend', '<br><small style="color:var(--c-red)">* Выбрано сезонное хранение шин</small>');
+            }
+        }
+      }
+
+      function generateRequestId() {
+        return 'REQ-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+      }
+
+      /* ===== Генерация дат ===== */
+      function renderDates() {
+        const container = document.getElementById('dates-container');
+        container.innerHTML = '';
+        const today = new Date();
+        
+        for (let i = 0; i < 14; i++) {
+          const date = new Date(today);
+          date.setDate(today.getDate() + i);
+          
+          const yyyy = date.getFullYear();
+          const mm = String(date.getMonth() + 1).padStart(2, '0');
+          const dd = String(date.getDate()).padStart(2, '0');
+          const dateStr = `${yyyy}-${mm}-${dd}`;
+          
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'date-btn';
+          btn.dataset.date = dateStr;
+          btn.innerHTML = `
+            <span class="date-btn__weekday">${WEEKDAYS[date.getDay()]}</span>
+            <span class="date-btn__day">${date.getDate()}</span>
+            <span class="date-btn__month">${MONTHS[date.getMonth()]}</span>
+          `;
+          
+          btn.addEventListener('click', () => selectDate(dateStr, btn));
+          container.appendChild(btn);
+        }
+      }
+
+      /* ===== Выбор даты ===== */
+      function selectDate(dateStr, btnEl) {
+        document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('is-active'));
+        btnEl.classList.add('is-active');
+        selectedDate = dateStr;
+        selectedTime = null; 
+        renderSlots();
+        updateSubmitButton();
+      }
+
+      /* ===== Генерация слотов ===== */
+      function renderSlots() {
+        const container = document.getElementById('slots-container');
+        container.innerHTML = '';
+        
+        if (!selectedDate) {
+          container.innerHTML = '<p style="color: var(--c-muted); grid-column: 1 / -1;">Сначала выберите дату</p>';
+          return;
+        }
+
+        const dateOccupancy = OCCUPANCY[selectedDate] || {};
+
+        SLOT_TIMES.forEach(time => {
+          const occupied = dateOccupancy[time] || 0;
+          const isFull = occupied >= 4;
+          
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'slot-btn';
+          btn.disabled = isFull;
+          
+          if (isFull) {
+            btn.innerHTML = `${time}<span class="slot-btn__meta">Мест нет</span>`;
+          } else {
+            btn.innerHTML = `${time}<span class="slot-btn__meta">${4 - occupied} мест</span>`;
+            btn.addEventListener('click', () => selectSlot(time, btn, selectedDate));
+          }
+          
+          container.appendChild(btn);
+        });
+      }
+
+      /* ===== Выбор слота ===== */
+      function selectSlot(time, btnEl, dateStr) {
+        document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('is-selected'));
+        btnEl.classList.add('is-selected');
+        selectedTime = time;
+        
+        document.getElementById('selected_slot').value = `${dateStr} ${time}`;
+        
+        const dateObj = new Date(dateStr);
+        
+        // Отправка события в общий файл аналитики
+        if (window.trackCustomEvent) {
+          window.trackCustomEvent('slot_select', {
+            slot_date: dateStr,
+            slot_time: time,
+            weekday: WEEKDAYS[dateObj.getDay()]
+          });
+        }
+
+        updateSubmitButton();
+      }
+
+      /* ===== Блокировка кнопки отправки ===== */
+      function updateSubmitButton() {
+        const btn = document.getElementById('submit-btn');
+        if (selectedDate && selectedTime) {
+          btn.disabled = false;
+          btn.textContent = 'Записаться';
+        } else {
+          btn.disabled = true;
+          btn.textContent = 'Выберите время и оставьте заявку';
+        }
+      }
+
+      /* ===== Валидация формы ===== */
+      function validateForm() {
+        let isValid = true;
+        
+        document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+        document.querySelectorAll('.field-error-msg').forEach(el => el.classList.remove('is-visible'));
+
+        const name = document.getElementById('name');
+        if (!name.value.trim() || name.value.trim().length < 2) {
+          name.classList.add('input-error');
+          document.getElementById('name-error').classList.add('is-visible');
+          isValid = false;
+        }
+
+        const phone = document.getElementById('phone');
+        if (!phone.value.trim()) {
+          phone.classList.add('input-error');
+          document.getElementById('phone-error').classList.add('is-visible');
+          isValid = false;
+        }
+
+        const consent = document.getElementById('consent');
+        if (!consent.checked) {
+          document.getElementById('consent-error').classList.add('is-visible');
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      /* ===== Обработка отправки ===== */
+      async function handleSubmit(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+          const firstError = document.querySelector('.input-error');
+          if (firstError) firstError.focus();
+          
+          // Отправляем событие об ошибке валидации
+          if (window.trackCustomEvent) {
+             window.trackCustomEvent('form_error', { error_type: 'validation' });
+          }
+          return;
+        }
+
+        const btn = document.getElementById('submit-btn');
+        btn.disabled = true;
+        btn.textContent = 'Отправляем...';
+
+        const formData = {
+          request_id: document.getElementById('request_id').value,
+          name: document.getElementById('name').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          car_type: document.getElementById('car_type').value,
+          rim_size: document.getElementById('rim_size').value,
+          slot_date: selectedDate,
+          slot_time: selectedTime,
+          utm_source: document.getElementById('utm_source').value,
+          utm_medium: document.getElementById('utm_medium').value,
+          utm_campaign: document.getElementById('utm_campaign').value,
+          utm_content: document.getElementById('utm_content').value
+        };
+
+        try {
+          let response;
+
+          if (API_URL === "YOUR_APPS_SCRIPT_URL_HERE") {
+            console.log("API_URL не настроен. Эмуляция отправки...");
+            await new Promise(resolve => setTimeout(resolve, 1000)); 
+            response = { ok: true };
+          } else {
+            response = await fetch(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData)
+            });
+          }
+
+          if (!response.ok) {
+            throw new Error('Ошибка сервера: ' + response.status);
+          }
+
+          sessionStorage.setItem('request_summary', JSON.stringify({
+            request_id: formData.request_id,
+            name: formData.name,
+            slot_date: formData.slot_date,
+            slot_time: formData.slot_time,
+            service: 'Шиномонтаж'
+          }));
+
+          window.location.href = 'thanks.html';
+
+        } catch (error) {
+          console.error('Ошибка отправки:', error);
+          
+          btn.textContent = 'Ошибка. Попробуйте снова';
+          btn.classList.add('btn--secondary');
+          
+          // Отправляем событие об ошибке сервера
+          if (window.trackCustomEvent) {
+            window.trackCustomEvent('form_error', {
+              error_message: error.message,
+              request_id: formData.request_id
+            });
+          }
+
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.textContent = 'Записаться';
+            btn.classList.remove('btn--secondary');
+          }, 3000);
+        }
+      }
+
+      /* ===== Инициализация ===== */
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('request_id').value = generateRequestId();
+        getUTMParams();
+        prefillForm();
+        renderDates();
+        
+        document.getElementById('booking-form').addEventListener('submit', handleSubmit);
+        
+        document.getElementById('name').addEventListener('input', function() {
+          this.classList.remove('input-error');
+          document.getElementById('name-error').classList.remove('is-visible');
+        });
+        document.getElementById('phone').addEventListener('input', function() {
+          this.classList.remove('input-error');
+          document.getElementById('phone-error').classList.remove('is-visible');
+        });
+        document.getElementById('consent').addEventListener('change', function() {
+          if (this.checked) {
+            document.getElementById('consent-error').classList.remove('is-visible');
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
