@@ -221,6 +221,7 @@
 
                 <div style="margin-top: 24px;">
                   <button class="btn btn--primary btn--block btn--lg" type="submit" id="submit-btn" disabled>Выберите время и оставьте заявку</button>
+                  <div id="form-error-msg" style="color: #C8361D; font-weight: 600; margin-top: 12px; font-size: 15px; display: none; text-align: center;"></div>
                 </div>
               </form>
             </div>
@@ -575,7 +576,7 @@
           } else {
             response = await fetch(API_URL, {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: { 'Content-Type': 'text/plain' },
               body: JSON.stringify(formData)
             });
           }
@@ -597,10 +598,14 @@
         } catch (error) {
           console.error('Ошибка отправки:', error);
           
-          btn.textContent = 'Ошибка. Попробуйте снова';
+          // Показываем красную ошибку на сайте
+          const errorDiv = document.getElementById('form-error-msg');
+          errorDiv.textContent = 'Ошибка: не удалось отправить заявку. Попробуйте позже или позвоните нам.';
+          errorDiv.style.display = 'block';
+
+          btn.textContent = 'Ошибка';
           btn.classList.add('btn--secondary');
           
-          // Отправляем событие об ошибке сервера
           if (window.trackCustomEvent) {
             window.trackCustomEvent('form_error', {
               error_message: error.message,
@@ -619,6 +624,24 @@
       /* ===== Инициализация ===== */
       document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('request_id').value = generateRequestId();
+        // Маска для телефона
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+          phoneInput.addEventListener('input', function (e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            if (!x[2]) {
+              e.target.value = x[1] ? '+7' : '';
+            } else if (!x[3]) {
+              e.target.value = '+7 (' + x[2];
+            } else if (!x[4]) {
+              e.target.value = '+7 (' + x[2] + ') ' + x[3];
+            } else if (!x[5]) {
+              e.target.value = '+7 (' + x[2] + ') ' + x[3] + '-' + x[4];
+            } else {
+              e.target.value = '+7 (' + x[2] + ') ' + x[3] + '-' + x[4] + '-' + x[5];
+            }
+          });
+        }
         getUTMParams();
         prefillForm();
         renderDates();
