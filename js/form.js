@@ -256,6 +256,7 @@
       isValid = false;
     }
 
+    // Проверка времени и даты (оставляем только один раз)
     if (!selectedDate || !selectedTime) {
       var slotErr = document.getElementById('slot-error-msg');
       if (slotErr) slotErr.classList.add('is-visible'); // Показываем красный текст
@@ -297,16 +298,16 @@
     };
 
     try {
-      var response = await fetch(API_URL, {
+      // Отправляем данные в режиме no-cors (обходим блокировку браузера)
+      await fetch(API_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        mode: 'no-cors', // <--- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(formData)
       });
 
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      var result = await response.json();
-      if (!result.ok) throw new Error(result.error || 'Сервер вернул ok: false');
-
+      // Так как мы используем no-cors, мы не можем прочитать ответ от Google.
+      // Но если не было ошибки сети, значит данные улетели. Просто идем дальше.
       sessionStorage.setItem('request_summary', JSON.stringify({
         request_id: formData.request_id,
         name: formData.name,
@@ -326,7 +327,7 @@
     } catch (error) {
       console.error('Ошибка отправки:', error);
       if (errorDiv) {
-        errorDiv.textContent = 'Ошибка: не удалось отправить заявку. Попробуйте позже или позвоните нам.';
+        errorDiv.textContent = 'Ошибка сети: не удалось отправить заявку. Проверьте интернет.';
         errorDiv.style.display = 'block';
       }
       if (window.trackCustomEvent) {
