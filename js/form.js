@@ -313,6 +313,9 @@
 
       // Отправляем событие (сделано после fetch, как требует ТЗ)
       if (window.trackCustomEvent) {
+
+        window.trackCustomEvent('form_submit', { form_id: 'booking-form' });
+
         window.trackCustomEvent('generate_lead', {
           lead_rim_size: formData.rim_size,
           lead_car_type: formData.car_type,
