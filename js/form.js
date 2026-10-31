@@ -56,15 +56,14 @@
     var carSelect = document.getElementById('car_type');
     var rimSelect = document.getElementById('rim_size');
     var serviceSelect = document.getElementById('service_type');
-    var storageCheckbox = document.getElementById('add_storage_checkbox');
 
     if (service && serviceSelect) serviceSelect.value = service;
     if (carType && carSelect && ['car', 'crossover', 'suv'].indexOf(carType) !== -1) carSelect.value = carType;
     if (rimSize && rimSelect && ['r13_15', 'r16_17', 'r18_19', 'r20_plus'].indexOf(rimSize) !== -1) rimSelect.value = rimSize;
     
-    // Если в ссылке есть storage=1, ставим галочку. Пользователь сможет её убрать.
-    if (storage === '1' && storageCheckbox) {
-      storageCheckbox.checked = true;
+    // Если пришло storage=1, ставим комбинированную услугу
+    if (storage === '1' && serviceSelect) {
+      serviceSelect.value = 'tires_storage';
     }
   }
 
