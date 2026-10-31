@@ -324,7 +324,9 @@
       }
       
       // Переходим на страницу спасибо
-      window.location.href = 'thanks.html';
+      setTimeout(function() {
+        window.location.href = 'thanks.html';
+      }, 200);
 
     } catch (error) {
       // Сюда попадем только если реально пропал интернет
