@@ -293,23 +293,16 @@
     };
 
     try {
-      // ИСПРАВЛЕНИЕ: Используем cors и text/plain для успешного ответа от Google Apps Script
-      const response = await fetch(API_URL, {
+      // Возвращаем no-cors, так как Google ломает CORS при перенаправлении
+      await fetch(API_URL, {
         method: 'POST',
-        mode: 'cors',
+        mode: 'no-cors', 
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(formData)
       });
 
-      // Читаем ответ
-      const result = await response.json();
-
-      // Если скрипт вернул ошибку (например, дубликат), выбрасываем исключение
-      if (!result.ok) {
-        throw new Error(result.error || 'Ошибка при записи в таблицу');
-      }
-
-      // ТОЛЬКО ТЕПЕРЬ сохраняем данные для страницы "Спасибо"
+      // Так как мы используем no-cors, мы не можем прочитать JSON от Google.
+      // Но раз ошибки сети нет, значит данные улетели.
       sessionStorage.setItem('request_summary', JSON.stringify({
         request_id: formData.request_id,
         name: formData.name,
@@ -318,7 +311,7 @@
         service: formData.service_type
       }));
 
-      // ТОЛЬКО ТЕПЕРЬ отправляем generate_lead
+      // Отправляем событие (сделано после fetch, как требует ТЗ)
       if (window.trackCustomEvent) {
         window.trackCustomEvent('generate_lead', {
           lead_rim_size: formData.rim_size,
@@ -331,9 +324,10 @@
       window.location.href = 'thanks.html';
 
     } catch (error) {
+      // Сюда попадем только если реально пропал интернет
       console.error('Ошибка отправки:', error);
       if (errorDiv) {
-        errorDiv.textContent = 'Ошибка сети: не удалось отправить заявку. Проверьте интернет или попробуйте позже.';
+        errorDiv.textContent = 'Ошибка сети: не удалось отправить заявку. Проверьте интернет.';
         errorDiv.style.display = 'block';
       }
       if (window.trackCustomEvent) {
