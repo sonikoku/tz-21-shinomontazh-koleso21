@@ -118,7 +118,7 @@
           <li><a class="nav__link" href="winter-tips.html">Когда переобуваться</a></li>
           <li><a class="nav__link is-active" href="contacts.html" aria-current="page">Контакты</a></li>
         </ul>
-        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="contact_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
+        <a class="btn btn--primary nav__cta" href="contacts.html#booking" data-event="cta_click" data-button-name="header_booking" data-page-section="header">Записаться</a>
       </nav>
     </div>
   </header>
@@ -171,10 +171,24 @@
                 <input type="hidden" name="utm_content" id="utm_content" value="">
                 <input type="hidden" name="selected_slot" id="selected_slot" value="">
 
+                <!-- ВЫБОР УСЛУГИ -->
+                <div class="field" style="margin-bottom: 16px;">
+                  <label class="field__label" for="service_type">Услуга *</label>
+                  <select class="field__control" id="service_type" name="service_type" required>
+                    <option value="" disabled selected>Выберите услугу</option>
+                    <option value="tires">Шиномонтаж</option>
+                    <option value="storage">Сезонное хранение шин</option>
+                    <option value="oil">Замена масла</option>
+                    <option value="diagnostics">Диагностика подвески</option>
+                    <option value="alignment">Развал-схождение</option>
+                    <option value="battery">Проверка аккумулятора</option>
+                  </select>
+                </div>
+
                 <div class="form-row">
                   <div class="field">
                     <label class="field__label" for="name">Имя *</label>
-                    <input class="field__control" type="text" id="name" name="name" required minlength="2" maxlength="50" autocomplete="name">
+                    <input class="field__control" type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name">
                     <p class="field-error-msg" id="name-error">Пожалуйста, введите имя</p>
                   </div>
                   <div class="field">
@@ -187,6 +201,7 @@
                 <div class="field">
                   <label class="field__label" for="email">Email</label>
                   <input class="field__control" type="email" id="email" name="email" autocomplete="email">
+                  <p class="field-error-msg" id="email-error">Неверный формат email</p>
                 </div>
 
                 <div class="form-row">
@@ -233,7 +248,7 @@
             <div class="contacts-card">
               <h2 class="section__title" style="font-size: 24px;">Связаться с нами</h2>
               
-              <a class="contact-link" href="tel:+79000002121" data-event="messenger_click" data-messenger="phone">
+              <a class="contact-link" href="tel:+79000002121" data-event="contact_click" data-contact-type="phone">
                 <svg viewBox="0 0 24 24" width="24" height="24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 +7 (900) 000-21-21
               </a>
@@ -261,12 +276,13 @@
                  target="_blank" 
                  rel="noopener noreferrer" 
                  data-event="map_open"
+                 data-map-service="yandex"
                  style="display: block; border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; border: 1px solid var(--c-gray);">
                 <img src="img/map.webp" alt="Схема проезда до шиномонтажа КОЛЕСО 21" style="width: 100%; height: auto; display: block;">
               </a>
 
               <!-- Кнопка для навигатора -->
-              <a class="btn btn--secondary btn--block" href="https://yandex.ru/maps/?text=Новоозёрск, Объездное шоссе, 21" target="_blank" rel="noopener noreferrer" data-event="map_open">
+              <a class="btn btn--secondary btn--block" href="https://yandex.ru/maps/?text=Новоозёрск, Объездное шоссе, 21" target="_blank" rel="noopener noreferrer" data-event="map_open" data-map-service="yandex">
                 <svg viewBox="0 0 24 24" width="20" height="20" style="margin-right: 8px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>
                 Построить маршрут
               </a>
