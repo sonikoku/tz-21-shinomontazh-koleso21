@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  // ЗАМЕНИТЕ на реальный URL вашего Apps Script
+  // ЗАМЕНИТЕ на реальный URL вашего Apps Script (заканчивается на /exec)
   const API_URL = "https://script.google.com/macros/s/AKfycbxsSAArwqHhwDcxPs4GSPTowdSjKjmLrA418NTLfW-hYmW7-Ys2X1YoXAbSZvxYhvMjzQ/exec";
 
   const OCCUPANCY = {
@@ -251,11 +251,6 @@
       isValid = false;
     }
 
-    if (!selectedDate || !selectedTime) {
-      if (window.trackCustomEvent) window.trackCustomEvent('form_error', { field_name: 'slot', error_type: 'required' });
-      isValid = false;
-    }
-
     // Проверка времени и даты (оставляем только один раз)
     if (!selectedDate || !selectedTime) {
       var slotErr = document.getElementById('slot-error-msg');
@@ -298,16 +293,23 @@
     };
 
     try {
-      // Отправляем данные в режиме no-cors (обходим блокировку браузера)
-      await fetch(API_URL, {
+      // ИСПРАВЛЕНИЕ: Используем cors и text/plain для успешного ответа от Google Apps Script
+      const response = await fetch(API_URL, {
         method: 'POST',
-        mode: 'no-cors', // <--- ГЛАВНОЕ ИСПРАВЛЕНИЕ
+        mode: 'cors',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(formData)
       });
 
-      // Так как мы используем no-cors, мы не можем прочитать ответ от Google.
-      // Но если не было ошибки сети, значит данные улетели. Просто идем дальше.
+      // Читаем ответ
+      const result = await response.json();
+
+      // Если скрипт вернул ошибку (например, дубликат), выбрасываем исключение
+      if (!result.ok) {
+        throw new Error(result.error || 'Ошибка при записи в таблицу');
+      }
+
+      // ТОЛЬКО ТЕПЕРЬ сохраняем данные для страницы "Спасибо"
       sessionStorage.setItem('request_summary', JSON.stringify({
         request_id: formData.request_id,
         name: formData.name,
@@ -316,6 +318,7 @@
         service: formData.service_type
       }));
 
+      // ТОЛЬКО ТЕПЕРЬ отправляем generate_lead
       if (window.trackCustomEvent) {
         window.trackCustomEvent('generate_lead', {
           lead_rim_size: formData.rim_size,
@@ -323,11 +326,14 @@
           lead_source: formData.utm_source
         });
       }
+      
+      // Переходим на страницу спасибо
       window.location.href = 'thanks.html';
+
     } catch (error) {
       console.error('Ошибка отправки:', error);
       if (errorDiv) {
-        errorDiv.textContent = 'Ошибка сети: не удалось отправить заявку. Проверьте интернет.';
+        errorDiv.textContent = 'Ошибка сети: не удалось отправить заявку. Проверьте интернет или попробуйте позже.';
         errorDiv.style.display = 'block';
       }
       if (window.trackCustomEvent) {
