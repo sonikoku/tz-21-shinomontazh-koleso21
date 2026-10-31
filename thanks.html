@@ -261,7 +261,20 @@
 
         // Услуга
         if (requestData.service) {
-          document.getElementById('summary-service').textContent = requestData.service;
+          // Словарь для перевода технических названий в красивый текст
+          const serviceNames = {
+            'tires': 'Шиномонтаж',
+            'storage': 'Сезонное хранение шин',
+            'tires_storage': 'Шиномонтаж + Хранение шин',
+            'oil': 'Замена масла',
+            'diagnostics': 'Диагностика подвески',
+            'alignment': 'Развал-схождение',
+            'battery': 'Проверка аккумулятора'
+          };
+          
+          // Если в словаре есть такое название, берем его. Если нет — оставляем как есть.
+          const displayService = serviceNames[requestData.service] || requestData.service;
+          document.getElementById('summary-service').textContent = displayService;
         } else {
           rowService.hidden = true;
         }
