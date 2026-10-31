@@ -3,7 +3,7 @@
   'use strict';
 
   // ЗАМЕНИТЕ на реальный URL вашего Apps Script
-  const API_URL = "https://script.google.com/macros/s/ВАШ_ID/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbxsSAArwqHhwDcxPs4GSPTowdSjKjmLrA418NTLfW-hYmW7-Ys2X1YoXAbSZvxYhvMjzQ/exec";
 
   const OCCUPANCY = {
     '2026-11-01': { '08:00': 4, '12:00': 3, '15:00': 4 } 
