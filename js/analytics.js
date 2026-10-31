@@ -39,7 +39,8 @@
     // Для телефона/e-mail и карт
     if (el.dataset.contactType) params.contact_type = el.dataset.contactType;
     if (el.dataset.mapService) params.map_service = el.dataset.mapService;
-
+    if (el.dataset.messenger) params.messenger = el.dataset.messenger; 
+    
     // Отправляем
     sendToGA(eventName, params);
   });
