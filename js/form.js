@@ -312,16 +312,20 @@
       }));
 
       // Отправляем событие (сделано после fetch, как требует ТЗ)
-      if (window.trackCustomEvent) {
+        if (window.trackCustomEvent) {
+          // Добавляем transport_type: 'beacon', чтобы события не терялись при переходе
+          window.trackCustomEvent('form_submit', { 
+            form_id: 'booking-form',
+            transport_type: 'beacon' 
+          });
 
-        window.trackCustomEvent('form_submit', { form_id: 'booking-form' });
-
-        window.trackCustomEvent('generate_lead', {
-          lead_rim_size: formData.rim_size,
-          lead_car_type: formData.car_type,
-          lead_source: formData.utm_source
-        });
-      }
+          window.trackCustomEvent('generate_lead', {
+            lead_rim_size: formData.rim_size,
+            lead_car_type: formData.car_type,
+            lead_source: formData.utm_source,
+            transport_type: 'beacon' // И сюда тоже
+          });
+        }
       
       // Переходим на страницу спасибо
       setTimeout(function() {
