@@ -89,7 +89,7 @@
       var urlCar = mapCarToForm(data.car);
       var urlRim = mapRimToForm(data.rim);
       var urlStorage = data.storagePrice > 0 ? '1' : '0';
-      bookBtn.href = 'contacts.html?car_type=' + urlCar + '&rim_size=' + urlRim + '&storage=' + urlStorage + '#booking';
+      bookBtn.href = 'contacts.html?service=tires&car_type=' + urlCar + '&rim_size=' + urlRim + '&storage=' + urlStorage + '#booking';
     }
   }
 
