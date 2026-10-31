@@ -56,20 +56,15 @@
     var carSelect = document.getElementById('car_type');
     var rimSelect = document.getElementById('rim_size');
     var serviceSelect = document.getElementById('service_type');
+    var storageCheckbox = document.getElementById('add_storage_checkbox');
 
     if (service && serviceSelect) serviceSelect.value = service;
-
-    if (carType && carSelect) {
-      if (['car', 'crossover', 'suv'].indexOf(carType) !== -1) carSelect.value = carType;
-    }
-    if (rimSize && rimSelect) {
-      if (['r13_15', 'r16_17', 'r18_19', 'r20_plus'].indexOf(rimSize) !== -1) rimSelect.value = rimSize;
-    }
-    if (storage === '1') {
-      var consentText = document.querySelector('.checkbox__text');
-      if (consentText) {
-        consentText.insertAdjacentHTML('beforeend', '<br><small style="color:var(--c-red)">* Выбрано сезонное хранение шин</small>');
-      }
+    if (carType && carSelect && ['car', 'crossover', 'suv'].indexOf(carType) !== -1) carSelect.value = carType;
+    if (rimSize && rimSelect && ['r13_15', 'r16_17', 'r18_19', 'r20_plus'].indexOf(rimSize) !== -1) rimSelect.value = rimSize;
+    
+    // Если в ссылке есть storage=1, ставим галочку. Пользователь сможет её убрать.
+    if (storage === '1' && storageCheckbox) {
+      storageCheckbox.checked = true;
     }
   }
 
@@ -164,6 +159,10 @@
     document.querySelectorAll('.slot-btn').forEach(function (b) { b.classList.remove('is-selected'); });
     btnEl.classList.add('is-selected');
     selectedTime = time;
+
+    var slotErr = document.getElementById('slot-error-msg');
+    if (slotErr) slotErr.classList.remove('is-visible');
+
     var hiddenSlot = document.getElementById('selected_slot');
     if (hiddenSlot) hiddenSlot.value = dateStr + ' ' + time;
     var dateObj = new Date(dateStr);
@@ -254,6 +253,14 @@
     }
 
     if (!selectedDate || !selectedTime) {
+      if (window.trackCustomEvent) window.trackCustomEvent('form_error', { field_name: 'slot', error_type: 'required' });
+      isValid = false;
+    }
+
+    if (!selectedDate || !selectedTime) {
+      var slotErr = document.getElementById('slot-error-msg');
+      if (slotErr) slotErr.classList.add('is-visible'); // Показываем красный текст
+      
       if (window.trackCustomEvent) window.trackCustomEvent('form_error', { field_name: 'slot', error_type: 'required' });
       isValid = false;
     }

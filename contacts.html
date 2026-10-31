@@ -160,6 +160,7 @@
                 <div class="slots-grid" id="slots-container" aria-live="polite">
                   <p style="color: var(--c-muted); grid-column: 1 / -1;">Сначала выберите дату</p>
                 </div>
+                <p class="field-error-msg" id="slot-error-msg" style="margin-top: 12px;">Пожалуйста, выберите время</p>
               </div>
 
               <!-- Шаг 3: Форма -->
@@ -224,6 +225,14 @@
                       <option value="r20_plus">R20+</option>
                     </select>
                   </div>
+                </div>
+
+                <div style="margin-top: 16px;">
+                  <label class="checkbox">
+                    <input class="checkbox__input" type="checkbox" id="add_storage_checkbox" name="add_storage">
+                    <span class="checkbox__box" aria-hidden="true"></span>
+                    <span class="checkbox__text">Добавить сезонное хранение шин (+3 000 ₽ / +3 800 ₽)</span>
+                  </label>
                 </div>
 
                 <div style="margin-top: 16px;">
