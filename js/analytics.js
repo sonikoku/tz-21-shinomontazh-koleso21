@@ -36,6 +36,10 @@
     if (el.dataset.fileName) params.file_name = el.dataset.fileName;
     if (el.dataset.fileType) params.file_extension = el.dataset.fileType;
 
+    // Для телефона/e-mail и карт
+    if (el.dataset.contactType) params.contact_type = el.dataset.contactType;
+    if (el.dataset.mapService) params.map_service = el.dataset.mapService;
+
     // Отправляем
     sendToGA(eventName, params);
   });
