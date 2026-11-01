@@ -27,12 +27,12 @@
     return new URLSearchParams(window.location.search).get(param);
   }
 
-  function saveUTMToSession() {
-    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'storage'].forEach(function (key) {
-      var value = getUrlParam(key);
-      if (value) sessionStorage.setItem(key, value);
-    });
-  }
+//   function saveUTMToSession() {
+//     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'storage'].forEach(function (key) {
+//       var value = getUrlParam(key);
+//       if (value) sessionStorage.setItem(key, value);
+//     });
+//   }
 
   function fillHiddenFields() {
     var map = {

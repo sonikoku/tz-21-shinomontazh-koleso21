@@ -2,6 +2,15 @@
 (function () {
   'use strict';
 
+    // Сохраняем UTM-метки в память при заходе на ЛЮБУЮ страницу сайта
+  (function saveUTM() {
+    var params = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'storage'];
+    params.forEach(function (key) {
+      var value = new URLSearchParams(window.location.search).get(key);
+      if (value) sessionStorage.setItem(key, value);
+    });
+  })();
+
   /* ===== Мобильное меню ===== */
   var burger = document.querySelector('.burger');
   var nav = document.getElementById('main-nav');
