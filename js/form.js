@@ -384,7 +384,7 @@
     var form = document.getElementById('booking-form');
     if (!form) return;
 
-    saveUTMToSession();
+    //saveUTMToSession();
     fillHiddenFields();
     prefillFromUrl();
     renderDates();
