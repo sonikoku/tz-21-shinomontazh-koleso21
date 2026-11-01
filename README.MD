@@ -11,7 +11,7 @@
 
 | Что | Ссылка |
 |---|---|
-| Сайт | [https://tz-21-shinomentazh-koleso21.vercel.app/](https://tz-21-shinomentazh-koleso21.vercel.app/) |
+| Сайт | [https://tz-21-shinomontazh-koleso21.vercel.app/](https://tz-21-shinomentazh-koleso21.vercel.app/) |
 | Таблица заявок | [https://docs.google.com/spreadsheets/d/1TeDwWQ1Zo6oh9bWn_b27sV6YU8Iqze95l3kSVtQ_edY/edit?hl=ru&gid=0#gid=0](https://docs.google.com/spreadsheets/d/1TeDwWQ1Zo6oh9bWn_b27sV6YU8Iqze95l3kSVtQ_edY/edit?hl=ru&gid=0#gid=0) |
 | Дашборд DataLens | [https://datalens.yandex/kum12vevcqqe3?_share_link=public](https://datalens.yandex/kum12vevcqqe3?_share_link=public) |
 | ВКонтакте · Telegram | [https://vk.ru/club242812364](https://vk.ru/club242812364) · [https://t.me/koleso21_SHADOW](https://t.me/koleso21_SHADOW) |
